@@ -547,7 +547,45 @@ td button:last-child:hover {
     }
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .select_month {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .select_month label {
+        margin-bottom: 2px;
+    }
+
+    .select_month select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .monthly_output {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .transaction_table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}@media (max-width: 600px) {
 
     body {
         background-color: #EAF5EF;
