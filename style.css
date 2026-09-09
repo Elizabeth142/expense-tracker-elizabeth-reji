@@ -22,8 +22,8 @@ body {
 }
 
 .header {
-    height: 64px;
-    padding: 0 30px;
+    height: 80px;
+    padding: 10px 30px;
     display: flex;
     align-items: center;
     gap: 12px;
@@ -33,7 +33,7 @@ body {
     top: 0;
     z-index: 30;
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
-    padding-bottom: 20px;
+
 }
 
 i
@@ -119,6 +119,7 @@ i
 
 .income {
     border-left: 5px solid #159A63 !important;
+    margin: 0px 0;
 }
 
 .income p {
@@ -150,7 +151,7 @@ i
     margin-bottom: 20px;
     border-radius: 14px;
     border: 1px solid #E1EEE8;
-    box-shadow: 0 5px 12px rgba(28, 91, 65, 0.06);
+    box-shadow: 0 3px 10px rgba(28, 91, 65, 0.05);
 }
 
 .transaction_form h2,
@@ -208,7 +209,10 @@ i
 }
 
 #submit-btn {
+    grid-column: 1 / -1;
+    width: 240px;
     padding: 12px;
+    margin: 10px auto 0;
     border: none;
     border-radius: 20px;
     background-color: #168A5B;
@@ -278,24 +282,29 @@ thead {
 }
 
 th {
-    padding: 12px;
+    padding: 12px 14px;
     color: #FFFFFF;
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     text-align: left;
+    white-space: nowrap;
 }
 
 td {
-    padding: 12px;
-    color: #52655D;
-    font-size: 12px;
-    border-bottom: 1px solid #E1EEE8;
-    background-color: #FFFFFF;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.15s ease;
 }
 
 tbody tr:hover td {
     background-color: #F2FAF6;
 }
+
 td button {
     padding: 6px 10px;
     margin-right: 5px;
@@ -303,6 +312,11 @@ td button {
     border-radius: 6px;
     font-size: 11px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+td button:hover {
+    transform: translateY(-1px);
 }
 
 td button:first-child {
@@ -319,8 +333,49 @@ td button:last-child {
     color: #D95C5C;
 }
 
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover td {
+    background-color: #F2FAF6;
+} 
+
 td button:last-child:hover {
     background-color: #F8DADD;
+}
+
+.transaction-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: capitalize;
+    border: none;
+}
+
+.transaction-type.income {
+    background-color: #E8F7F0;
+    color: #168A5B;
+    border: none;
+    border-left: none !important;
+}
+
+.transaction-type.expense {
+    background-color: #FCEBEC;
+    color: #D95C5C;
+} 
+
+.amount-income {
+    color: #168A5B;
+    font-weight: 700;
+}
+
+.amount-expense {
+    color: #D95C5C;
+    font-weight: 700;
 }
 
 .empty-message {
@@ -394,6 +449,53 @@ td button:last-child:hover {
 .monthly_output strong {
     color: #0B5D3B;
     font-size: 19px;
+}
+
+.monthly-value {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.monthly-income {
+    color: #168A5B;
+}
+
+.monthly-expenses {
+    color: #D95C5C;
+}
+
+.monthly-balance {
+    color: #0B5D3B;
+}
+
+.monthly-income strong {
+    color: #168A5B;
+}
+
+.monthly-expenses strong {
+    color: #D95C5C;
+}
+
+.monthly-balance strong {
+    color: #0B5D3B;
+}
+
+.monthly-item {
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #F7FBF9;
+}
+
+.monthly-item span {
+    display: block;
+    margin-bottom: 6px;
+    color: #52655D;
+    font-size: 12px;
+}
+
+.monthly-item strong {
+    font-size: 20px;
+    font-weight: 700;
 }
 
 #expense-chart {
@@ -585,50 +687,96 @@ td button:last-child:hover {
     table {
         min-width: 650px;
     }
-}@media (max-width: 600px) {
+}
+@media(max-width:600px) {
 
+    html,
     body {
-        background-color: #EAF5EF;
+        max-width: 100%;
+        overflow-x: hidden;
     }
 
-    .container {
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-        padding: 15px;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    
-    .header {
-        padding: 0 16px;
-    }
-    
-    .brand p {
-        display: none;
-    }
-    
-
-    #transaction_form {
-        grid-template-columns: 1fr;
+    .header{
+        padding:12px 16px;
+        gap:10px;
     }
 
-    #submit-btn {
-        grid-column: auto;
+    .logo{
+        width:45px;
+        height:45px;
+        font-size:21px;
     }
 
-    .filters {
+    .brand h1{
+        font-size:25px;
+    }
+
+    .brand h1 span{
+        font-size:9px;
+        padding:3px 6px;
+    }
+
+    .brand p{
+        font-size:10px;
+        margin-top:2px;
+    }
+
+    .select_month {
+        display: flex;
         flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        width: 100%;
     }
 
-    .filter-group select {
+    .select_month label {
+        margin-bottom: 2px;
+    }
+
+    .select_month select {
         width: 100%;
+        box-sizing: border-box;
+    }
+
+    .monthly_output {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .transaction_table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+
+    td button {
+        padding: 5px 8px;
+        font-size: 10px;
+        margin-right: 3px;
+    }
+
+    .monthly_output {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .monthly-item {
+        padding: 12px;
+    }
+
+    .monthly-item strong {
+        font-size: 18px;
     }
 
     .transaction_form,
     .transactions-section,
     .monthly-summary,
     .chart-section {
-        padding: 18px;
+        padding: 16px;
+        margin-bottom: 15px;
+        border-radius: 12px;
     }
-}
+ }

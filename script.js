@@ -16,7 +16,27 @@ const monthlyExpenses=document.getElementById("monthly-expenses");
 const monthlyBalance=document.getElementById("monthly-balance");
 const deletePopup=document.getElementById("delete-popup");
 const cancelDelete=document.getElementById("cancel-delete");
-const confirmDelete=document.getElementById("confirm-delete");
+const confirmDelete = document.getElementById("confirm-delete");
+const type=document.getElementById("type");
+const category=document.getElementById("category");
+
+const incomeCategories=[
+    "Salary",
+    "Freelance",
+    "Business",
+    "Other"
+];
+
+const expenseCategories=[
+    "Food",
+    "Travel",
+    "Shopping",
+    "Bills",
+    "Entertainment",
+    "Health",
+    "Education",
+    "Other"
+];
 
 let deleteId=null;
 let editingId=null;
@@ -56,6 +76,31 @@ yearFilter.addEventListener("change",function(){
     updateMonthlySummary();
 });
 
+type.addEventListener("change",function(){
+
+    category.innerHTML='<option value="">Choose category</option>';
+
+    let categories=[];
+
+    if(type.value==="income"){
+
+        categories=incomeCategories;
+
+    }else if(type.value==="expense"){
+
+        categories=expenseCategories;
+    }
+
+    categories.forEach(function(categoryName){
+
+        const option=document.createElement("option");
+
+        option.value=categoryName;
+        option.textContent=categoryName;
+
+        category.appendChild(option);
+    });
+});
 
 transactionForm.addEventListener("submit",function(event){
 
@@ -197,22 +242,33 @@ function displayTransactions(){
                 : `- ₹${formattedAmount}`;
 
 
-        row.innerHTML=`
-            <td>${formattedDate}</td>
-            <td>${transaction.type}</td>
-            <td>${transaction.category}</td>
-            <td>${transaction.description}</td>
-            <td>${amountDisplay}</td>
-            <td>
-                <button onclick="editTransaction(${transaction.id})">
-                    Edit
-                </button>
+        row.innerHTML = `
+    <td>${formattedDate}</td>
 
-                <button onclick="deleteTransaction(${transaction.id})">
-                    Delete
-                </button>
-            </td>
-        `;
+    <td>
+        <span class="transaction-type ${transaction.type}">
+            ${transaction.type}
+        </span>
+    </td>
+
+    <td>${transaction.category}</td>
+
+    <td>${transaction.description || "-"}</td>
+
+    <td class="${transaction.type === "income" ? "amount-income" : "amount-expense"}">
+        ${amountDisplay}
+    </td>
+
+    <td>
+        <button onclick="editTransaction(${transaction.id})">
+            Edit
+        </button>
+
+        <button onclick="deleteTransaction(${transaction.id})">
+            Delete
+        </button>
+    </td>
+`;
 
 
         transactionList.appendChild(row);
