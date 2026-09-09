@@ -30,6 +30,7 @@ The Expense Tracker allows users to add, edit, delete, and filter transactions w
 
 ## Project Structure
 
+```text
 expense-tracker/
 │
 ├── index.html
