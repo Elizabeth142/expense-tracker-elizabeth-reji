@@ -96,7 +96,7 @@ i
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 .summary>div {
@@ -782,14 +782,6 @@ td button:last-child:hover {
         font-size: 18px;
     }
 
-    .transaction_form,
-    .transactions-section,
-    .monthly-summary,
-    .chart-section {
-        padding: 16px;
-        margin-bottom: 15px;
-        border-radius: 12px;
-    }
 
     .transaction_form{
         grid-template-columns:1fr;
@@ -825,6 +817,25 @@ td button:last-child:hover {
         width:100%;
         box-sizing:border-box;
     }
+
+        .filters {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+    
+        .filters .form {
+            width: 100%;
+        }
+    
+        #type,
+        #category {
+            width: 100%;
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
 
     .footer{
         margin-top:20px;
