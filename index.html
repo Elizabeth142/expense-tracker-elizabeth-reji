@@ -14,20 +14,19 @@
 <body>
 
     <div class="container">
+
         <header class="header">
-            <div class="logo"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+            <div class="logo">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+
             <div class="brand">
-                <h1>
-                    MyExpenses
-                    <span>TRACKER</span>
-                </h1>
+                <h1>MyExpenses <span>TRACKER</span></h1>
                 <p>Personal Income & Expense Manager</p>
             </div>
         </header>
 
-
         <section class="summary">
-
             <div class="income">
                 <h3>Income</h3>
                 <p id="total_income">₹0.00</p>
@@ -42,19 +41,15 @@
                 <h3>Balance</h3>
                 <p id="balance">₹0.00</p>
             </div>
-
         </section>
 
-
         <section class="transaction_form">
-
             <h2>Add a Transaction</h2>
 
             <form id="transaction_form">
 
                 <div class="form">
                     <label for="type">Type</label>
-
                     <select id="type" required>
                         <option value="">Choose type</option>
                         <option value="income">Income</option>
@@ -62,17 +57,13 @@
                     </select>
                 </div>
 
-
                 <div class="form">
                     <label for="amount">Amount</label>
-
                     <input type="number" id="amount" placeholder="Enter amount" step="0.01" required>
                 </div>
 
-
                 <div class="form">
                     <label for="category">Category</label>
-
                     <select id="category" required>
                         <option value="">Choose category</option>
                         <option value="Salary">Salary</option>
@@ -88,32 +79,22 @@
                     </select>
                 </div>
 
-
                 <div class="form">
                     <label for="date">Date</label>
-
                     <input type="date" id="date" required>
                 </div>
 
-
                 <div class="form">
                     <label for="description">Description</label>
-                
                     <input type="text" id="description" placeholder="What was this for?" maxlength="100">
                 </div>
 
-
                 <p id="error-message" class="error-message"></p>
 
-
-                <button type="submit" id="submit-btn">
-                    Add Transaction
-                </button>
+                <button type="submit" id="submit-btn">Add Transaction</button>
 
             </form>
-
         </section>
-
 
         <section class="transactions-section">
 
@@ -121,12 +102,10 @@
                 <h2>Your Transactions</h2>
             </div>
 
-
             <div class="filters">
 
                 <div class="filter-group">
                     <label for="type-filter">Type</label>
-
                     <select id="type-filter">
                         <option value="all">All transactions</option>
                         <option value="income">Income</option>
@@ -134,10 +113,8 @@
                     </select>
                 </div>
 
-
                 <div class="filter-group">
                     <label for="category-filter">Category</label>
-
                     <select id="category-filter">
                         <option value="all">All categories</option>
                         <option value="Salary">Salary</option>
@@ -155,11 +132,9 @@
 
             </div>
 
-
             <div class="table-container">
 
                 <table>
-
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -171,9 +146,7 @@
                         </tr>
                     </thead>
 
-                    <tbody id="transaction-list">
-                    </tbody>
-
+                    <tbody id="transaction-list"></tbody>
                 </table>
 
                 <div id="empty-message" class="empty-message">
@@ -184,17 +157,33 @@
 
         </section>
 
-
         <section class="monthly-summary">
 
             <h2>Monthly Summary</h2>
 
             <div class="select_month">
-                <label for="month-filter">Month</label>
-
-                <input type="month" id="month-filter">
+                <label>Month</label>
+            
+                <select id="month-filter">
+                    <option value="">Select Month</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            
+                <select id="year-filter">
+                    <option value="">Select Year</option>
+                </select>
             </div>
-
 
             <div class="monthly_output">
 
@@ -217,30 +206,35 @@
 
         </section>
 
-
         <section class="chart-section">
 
             <h2>Where Your Money Goes</h2>
-
-            <div id="expense-chart">
-            </div>
+            <div id="expense-chart"></div>
 
         </section>
 
     </div>
 
     <div id="delete-popup" class="delete-popup">
+
         <div class="delete-box">
+
             <h3>Delete Transaction?</h3>
             <p>Are you sure you want to delete this transaction?</p>
-    
+
             <div class="delete-actions">
                 <button id="cancel-delete">Cancel</button>
                 <button id="confirm-delete">Delete</button>
             </div>
+
         </div>
+
     </div>
-    
+    <footer class="footer">
+        <p>© 2026 MyExpenses Tracker. All rights reserved.</p>
+        <p>Manage your income. Track your expenses. Plan better.</p>
+    </footer>
+
     <script src="script.js"></script>
 
 </body>
