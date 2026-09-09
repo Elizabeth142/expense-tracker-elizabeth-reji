@@ -8,10 +8,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: #EAF5EF;
     color: #244238;
-    min-height: 100vh;
 }
 
+
+
 .container {
+    min-height: 100vh;
     width: 92%;
     max-width: 1200px;
     margin: 40px auto;
@@ -692,8 +694,10 @@ td button:last-child:hover {
 
     html,
     body {
-        max-width: 100%;
-        overflow-x: hidden;
+        margin:0;
+        padding:0;
+        width:100%;
+        overflow-x:hidden;
     }
 
     .header{
@@ -721,21 +725,28 @@ td button:last-child:hover {
         margin-top:2px;
     }
 
-    .select_month {
+    /* .select_month {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
         width: 100%;
-    }
+    } */
 
     .select_month label {
         margin-bottom: 2px;
     }
 
-    .select_month select {
-        width: 100%;
-        box-sizing: border-box;
+    .select_month{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .select_month select{
+        width:100%;
+        min-width:0;
+        box-sizing:border-box;
     }
 
     .monthly_output {
@@ -778,5 +789,50 @@ td button:last-child:hover {
         padding: 16px;
         margin-bottom: 15px;
         border-radius: 12px;
+    }
+
+    .transaction_form{
+        grid-template-columns:1fr;
+    }
+
+    .transaction_form input,
+    .transaction_form select{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+     .filter-section{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .filter-section select{
+        width:100%;
+        min-width:0;
+        box-sizing:border-box;
+        font-size:12px;
+        padding:9px;
+    }
+
+    .transaction_form{
+        grid-template-columns:1fr;
+        gap:14px;
+    }
+
+    .transaction_form input,
+    .transaction_form select{
+        width:100%;
+        box-sizing:border-box;
+    }
+
+    .footer{
+        margin-top:20px;
+        padding:16px 10px;
+    }
+
+    .footer p{
+        font-size:12px;
+        margin:4px 0;
     }
  }
