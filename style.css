@@ -851,51 +851,30 @@ tbody tr:hover td {
 
     /* FILTERS */
 
-    /* .filters {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
-        width: 100%;
-    }
+.filters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 100%;
+}
 
-    .filters .form {
-        width: 100%;
-    }
+.filters .form {
+    width: 100%;
+}
 
-    .filter-section select {
-        width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-        font-size: 12px;
-        padding: 9px;
-    } */
+.filters label {
+    font-size: 11px;
+    margin-bottom: 4px;
+}
 
-        /* FILTERS */
-    
-        .filters {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            width: 100%;
-        }
-    
-        .filters .form {
-            width: 100%;
-        }
-    
-        .filters label {
-            font-size: 11px;
-            margin-bottom: 4px;
-        }
-    
-        .filters select {
-            width: 100%;
-            min-width: 0;
-            box-sizing: border-box;
-            padding: 7px 5px;
-            font-size: 11px;
-            height: 36px;
-        }
+.filters select {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 7px 5px;
+    font-size: 11px;
+    height: 36px;
+}
 
 
     /* FOOTER */
