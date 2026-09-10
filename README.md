@@ -7,7 +7,6 @@ A simple and responsive web application for managing personal income and expense
 - Add income and expense transactions
 - Enter transaction amount, category, date, and description
 - Edit existing transactions
-- Cancel editing transactions
 - Delete transactions with confirmation
 - View total income, total expenses, and current balance
 - Filter transactions by type and category
