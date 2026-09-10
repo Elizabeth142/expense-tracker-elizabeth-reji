@@ -11,6 +11,7 @@ const typeFilter=document.getElementById("type-filter");
 const categoryFilter=document.getElementById("category-filter");
 const errorMessage=document.getElementById("error-message");
 const monthFilter=document.getElementById("month-filter");
+const yearFilter=document.getElementById("year-filter");
 const monthlyIncome=document.getElementById("monthly-income");
 const monthlyExpenses=document.getElementById("monthly-expenses");
 const monthlyBalance=document.getElementById("monthly-balance");
@@ -19,6 +20,8 @@ const cancelDelete=document.getElementById("cancel-delete");
 const confirmDelete = document.getElementById("confirm-delete");
 const type=document.getElementById("type");
 const category=document.getElementById("category");
+
+
 
 const incomeCategories=[
     "Salary",
@@ -38,20 +41,31 @@ const expenseCategories=[
     "Other"
 ];
 
+const categories=[
+    "Salary",
+    "Freelance",
+    "Food",
+    "Travel",
+    "Shopping",
+    "Bills",
+    "Entertainment",
+    "Health",
+    "Education",
+    "Other"
+];
+
+categories.forEach(function(category){
+    const option=document.createElement("option");
+
+    option.value=category;
+    option.textContent=category;
+
+    categoryFilter.appendChild(option);
+});
+
 let deleteId=null;
 let editingId=null;
 
-
-const yearFilter=document.getElementById("year-filter");
-
-const currentYear=new Date().getFullYear();
-
-for(let year=currentYear-5;year<=currentYear+5;year++){
-    const option=document.createElement("option");
-    option.value=year;
-    option.textContent=year;
-    yearFilter.appendChild(option);
-}
 
 function saveTransactions(){
     localStorage.setItem("transactions",JSON.stringify(transactions));
@@ -222,57 +236,82 @@ function displayTransactions(){
 
     filteredTransactions.forEach(function(transaction){
 
-        const row=document.createElement("tr");
+    const row=document.createElement("tr");
 
 
-        const formattedDate=new Date(
-            transaction.date+"T00:00:00"
-        ).toLocaleDateString("en-IN");
+    const formattedDate=new Date(
+        transaction.date+"T00:00:00"
+    ).toLocaleDateString("en-IN");
 
 
-        const formattedAmount=transaction.amount.toLocaleString("en-IN",{
-            minimumFractionDigits:2,
-            maximumFractionDigits:2
-        });
-
-
-        const amountDisplay=
-            transaction.type==="income"
-                ? `+ ₹${formattedAmount}`
-                : `- ₹${formattedAmount}`;
-
-
-        row.innerHTML = `
-    <td>${formattedDate}</td>
-
-    <td>
-        <span class="transaction-type ${transaction.type}">
-            ${transaction.type}
-        </span>
-    </td>
-
-    <td>${transaction.category}</td>
-
-    <td>${transaction.description || "-"}</td>
-
-    <td class="${transaction.type === "income" ? "amount-income" : "amount-expense"}">
-        ${amountDisplay}
-    </td>
-
-    <td>
-        <button onclick="editTransaction(${transaction.id})">
-            Edit
-        </button>
-
-        <button onclick="deleteTransaction(${transaction.id})">
-            Delete
-        </button>
-    </td>
-`;
-
-
-        transactionList.appendChild(row);
+    const formattedAmount=transaction.amount.toLocaleString("en-IN",{
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
     });
+
+
+    const amountDisplay=
+        transaction.type==="income"
+            ? `+ ₹${formattedAmount}`
+            : `- ₹${formattedAmount}`;
+
+    const dateCell=document.createElement("td");
+    dateCell.textContent=formattedDate;
+
+    const typeCell=document.createElement("td");
+
+    const typeSpan=document.createElement("span");
+    typeSpan.className=`transaction-type ${transaction.type}`;
+    typeSpan.textContent=transaction.type;
+
+    typeCell.appendChild(typeSpan);
+
+    const categoryCell=document.createElement("td");
+    categoryCell.textContent=transaction.category;
+
+
+    const descriptionCell=document.createElement("td");
+    descriptionCell.textContent=transaction.description || "-";
+
+    const amountCell=document.createElement("td");
+
+    amountCell.className=
+        transaction.type==="income"
+            ? "amount-income"
+            : "amount-expense";
+
+    amountCell.textContent=amountDisplay;
+
+    const actionsCell=document.createElement("td");
+
+
+    const editButton=document.createElement("button");
+    editButton.textContent="Edit";
+
+    editButton.addEventListener("click",function(){
+        editTransaction(transaction.id);
+    });
+
+
+    const deleteButton=document.createElement("button");
+    deleteButton.textContent="Delete";
+
+    deleteButton.addEventListener("click",function(){
+        deleteTransaction(transaction.id);
+    });
+
+
+    actionsCell.appendChild(editButton);
+    actionsCell.appendChild(deleteButton);
+    row.appendChild(dateCell);
+    row.appendChild(typeCell);
+    row.appendChild(categoryCell);
+    row.appendChild(descriptionCell);
+    row.appendChild(amountCell);
+    row.appendChild(actionsCell);
+
+    transactionList.appendChild(row);
+});
 }
 
 
@@ -395,7 +434,6 @@ function updateSummary(){
         maximumFractionDigits:2
     })}`;
 }
-
 
 function updateMonthlySummary(){
     const selectedMonth=monthFilter.value;
@@ -531,7 +569,19 @@ function updateExpenseChart(){
         expenseChart.appendChild(chartItem);
     });
 }
+const currentYear = new Date().getFullYear();
 
+for(let year=currentYear-5; year<=currentYear+5; year++){
+    const option=document.createElement("option");
+    option.value=String(year);
+    option.textContent=year;
+    yearFilter.appendChild(option);
+}
+
+const currentMonth = String(new Date().getMonth()+1).padStart(2,"0");
+
+monthFilter.value = currentMonth;
+yearFilter.value = String(currentYear);
 
 displayTransactions();
 updateSummary();
