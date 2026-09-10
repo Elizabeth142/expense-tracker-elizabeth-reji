@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -49,11 +51,15 @@ i
     align-items: center;
     justify-content: center;
     border-radius: 12px;
-    background: linear-gradient(135deg,#059669,#2dd4bf);
+    background: linear-gradient(135deg, #059669, #2dd4bf);
     color: white;
     font-size: 20px;
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+}
+
+i {
+    color: white;
 }
 
 .brand h1 {
@@ -91,6 +97,9 @@ i
     color: #71857C;
     font-size: 13px;
 }
+
+
+/*SUMMARY*/
 
 .summary {
     display: grid;
@@ -144,6 +153,9 @@ i
     color: #168A5B;
 }
 
+
+/*COMMON SECTIONS*/
+
 .transaction_form,
 .transactions-section,
 .monthly-summary,
@@ -164,6 +176,9 @@ i
     font-size: 18px;
     margin-bottom: 20px;
 }
+
+
+/*TRANSACTION FORM*/
 
 #transaction_form {
     display: grid;
@@ -210,11 +225,22 @@ i
     color: #40554C;
 }
 
-#submit-btn {
+
+/*FORM BUTTONS*/
+
+.form-actions {
     grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#submit-btn {
     width: 240px;
     padding: 12px;
-    margin: 10px auto 0;
+    margin: 0;
     border: none;
     border-radius: 20px;
     background-color: #168A5B;
@@ -229,10 +255,32 @@ i
     background-color: #0B5D3B;
 }
 
+#cancel-edit {
+    display: none;
+    width: 240px;
+    padding: 12px;
+    margin: 0;
+    border: none;
+    border-radius: 20px;
+    background-color: #d45a623d;
+    color: #D95C5C;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#cancel-edit:hover {
+    background-color: #FCEBEC;
+}
+
 .error-message {
     color: #D95C5C;
     font-size: 12px;
 }
+
+
+/*TRANSACTION FILTERS*/
 
 .filters {
     display: flex;
@@ -265,6 +313,13 @@ i
 .filter-group select:focus {
     border-color: #168A5B;
 }
+
+.sort-group {
+    margin-left: auto;
+}
+
+
+/*TRANSACTION TABLE*/
 
 .table-container {
     width: 100%;
@@ -307,6 +362,9 @@ tbody tr:hover td {
     background-color: #F2FAF6;
 }
 
+
+/*TRANSACTION BUTTONS*/
+
 td button {
     padding: 6px 10px;
     margin-right: 5px;
@@ -335,6 +393,10 @@ td button:last-child {
     color: #D95C5C;
 }
 
+td button:last-child:hover {
+    background-color: #F8DADD;
+}
+
 tbody tr:last-child td {
     border-bottom: none;
 }
@@ -343,9 +405,7 @@ tbody tr:hover td {
     background-color: #F2FAF6;
 } 
 
-td button:last-child:hover {
-    background-color: #F8DADD;
-}
+/*TRANSACTION TYPE*/
 
 .transaction-type {
     display: inline-flex;
@@ -368,7 +428,10 @@ td button:last-child:hover {
 .transaction-type.expense {
     background-color: #FCEBEC;
     color: #D95C5C;
-} 
+}
+
+
+/*TRANSACTION AMOUNT*/
 
 .amount-income {
     color: #168A5B;
@@ -386,6 +449,9 @@ td button:last-child:hover {
     color: #84968E;
     font-size: 13px;
 }
+
+
+/*MONTHLY SUMMARY*/
 
 .select_month {
     display: flex;
@@ -500,6 +566,9 @@ td button:last-child:hover {
     font-weight: 700;
 }
 
+
+/*EXPENSE CHART*/
+
 #expense-chart {
     display: flex;
     flex-direction: column;
@@ -533,6 +602,16 @@ td button:last-child:hover {
     background-color: #168A5B;
     border-radius: 10px;
 }
+
+.chart-empty {
+    padding: 20px;
+    text-align: center;
+    color: #84968E;
+    font-size: 13px;
+}
+
+
+/*DELETE POPUP*/
 
 .delete-popup {
     position: fixed;
@@ -609,12 +688,8 @@ td button:last-child:hover {
     background-color: #C94E4E;
 }
 
-.chart-empty {
-    padding: 20px;
-    text-align: center;
-    color: #84968E;
-    font-size: 13px;
-}
+
+/*FOOTER*/
 
 .footer {
     margin-top: 40px;
@@ -633,6 +708,7 @@ td button:last-child:hover {
     font-size: 13px;
     opacity: 0.85;
 }
+
 
 
 @media (max-width: 800px) {
@@ -656,15 +732,50 @@ td button:last-child:hover {
 
     html,
     body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
         max-width: 100%;
         overflow-x: hidden;
     }
 
-    .select_month {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+
+    /* HEADER */
+
+    .header {
+        padding: 12px 16px;
         gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+        font-size: 21px;
+    }
+
+    .brand h1 {
+        font-size: 25px;
+    }
+
+    .brand h1 span {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+
+    .brand p {
+        font-size: 10px;
+        margin-top: 2px;
+    }
+
+
+    /* MONTHLY SUMMARY */
+
+    .select_month {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
         width: 100%;
     }
 
@@ -674,86 +785,27 @@ td button:last-child:hover {
 
     .select_month select {
         width: 100%;
+        min-width: 0;
         box-sizing: border-box;
     }
 
     .monthly_output {
         width: 100%;
         box-sizing: border-box;
-    }
-
-    .transaction_table {
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        min-width: 650px;
-    }
-}
-@media(max-width:600px) {
-
-    html,
-    body {
-        margin:0;
-        padding:0;
-        width:100%;
-        overflow-x:hidden;
-    }
-
-    .header{
-        padding:12px 16px;
-        gap:10px;
-    }
-
-    .logo{
-        width:45px;
-        height:45px;
-        font-size:21px;
-    }
-
-    .brand h1{
-        font-size:25px;
-    }
-
-    .brand h1 span{
-        font-size:9px;
-        padding:3px 6px;
-    }
-
-    .brand p{
-        font-size:10px;
-        margin-top:2px;
-    }
-
-    /* .select_month {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
+        grid-template-columns: 1fr;
         gap: 10px;
-        width: 100%;
-    } */
-
-    .select_month label {
-        margin-bottom: 2px;
     }
 
-    .select_month{
-        display:grid;
-        grid-template-columns:1fr;
-        gap:8px;
+    .monthly-item {
+        padding: 12px;
     }
 
-    .select_month select{
-        width:100%;
-        min-width:0;
-        box-sizing:border-box;
+    .monthly-item strong {
+        font-size: 18px;
     }
 
-    .monthly_output {
-        width: 100%;
-        box-sizing: border-box;
-    }
+
+    /* TRANSACTION TABLE */
 
     .transaction_table {
         width: 100%;
@@ -770,81 +822,65 @@ td button:last-child:hover {
         margin-right: 3px;
     }
 
-    .monthly_output {
+
+    /* TRANSACTION FORM */
+
+    .transaction_form {
         grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .transaction_form input,
+    .transaction_form select {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #type,
+    #category {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    /* FILTERS */
+
+    .filter-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 10px;
     }
 
-    .monthly-item {
-        padding: 12px;
+    .filter-section select {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 12px;
+        padding: 9px;
     }
 
-    .monthly-item strong {
-        font-size: 18px;
+    .filters {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .filters .form {
+        width: 100%;
     }
 
 
-    .transaction_form{
-        grid-template-columns:1fr;
+    /* FOOTER */
+
+    .footer {
+        margin-top: 20px;
+        padding: 16px 10px;
     }
 
-    .transaction_form input,
-    .transaction_form select{
-        width:100%;
-        box-sizing:border-box;
+    .footer p {
+        font-size: 12px;
+        margin: 4px 0;
     }
-
-     .filter-section{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .filter-section select{
-        width:100%;
-        min-width:0;
-        box-sizing:border-box;
-        font-size:12px;
-        padding:9px;
-    }
-
-    .transaction_form{
-        grid-template-columns:1fr;
-        gap:14px;
-    }
-
-    .transaction_form input,
-    .transaction_form select{
-        width:100%;
-        box-sizing:border-box;
-    }
-
-        .filters {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
-    
-        .filters .form {
-            width: 100%;
-        }
-    
-        #type,
-        #category {
-            width: 100%;
-            min-width: 0;
-            max-width: 100%;
-            box-sizing: border-box;
-        }
-        
-
-    .footer{
-        margin-top:20px;
-        padding:16px 10px;
-    }
-
-    .footer p{
-        font-size:12px;
-        margin:4px 0;
-    }
- }
+}

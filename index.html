@@ -44,7 +44,7 @@
         </section>
 
         <section class="transaction_form">
-            <h2>Add a Transaction</h2>
+            <h2 id="form-title">Add a Transaction</h2>
 
             <form id="transaction_form">
 
@@ -82,8 +82,10 @@
 
                 <p id="error-message" class="error-message"></p>
 
-                <button type="submit" id="submit-btn">Add Transaction</button>
-
+                <div class="form-actions">
+                    <button type="submit" id="submit-btn">Add Transaction</button>
+                    <button type="button" id="cancel-edit">Cancel</button>
+                </div>
             </form>
         </section>
 
@@ -108,6 +110,15 @@
                     <label for="category-filter">Category</label>
                     <select id="category-filter">
                         <option value="all">All categories</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="sort-order">Sort Order</label>
+                    <select id="sort-order">
+                        <option value="none">Default order</option>
+                        <option value="ascending">Ascending</option>
+                        <option value="descending">Descending</option>
                     </select>
                 </div>
 
