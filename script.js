@@ -28,13 +28,23 @@ const cancelEdit=document.getElementById("cancel-edit");
 const formTitle=document.getElementById("form-title");
 
 
-/* DATE*/
+/* DATE */
 
-const dateInput=document.getElementById("date");
+const dateInput = document.getElementById("date");
 
-const today=new Date().toISOString().split("T")[0];
+function getTodayString() {
+    const today = new Date();
 
-dateInput.max=today;
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+const today = getTodayString();
+
+dateInput.max = today;
 
 
 /* CATEGORIES*/
