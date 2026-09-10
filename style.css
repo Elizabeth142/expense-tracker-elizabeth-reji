@@ -180,6 +180,10 @@ i {
 
 /*TRANSACTION FORM*/
 
+.transaction_form {
+    grid-template-columns: 1fr;
+}
+
 #transaction_form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -847,10 +851,15 @@ tbody tr:hover td {
 
     /* FILTERS */
 
-    .filter-section {
+    .filters {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .filters .form {
+        width: 100%;
     }
 
     .filter-section select {
@@ -859,16 +868,6 @@ tbody tr:hover td {
         box-sizing: border-box;
         font-size: 12px;
         padding: 9px;
-    }
-
-    .filters {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-    }
-
-    .filters .form {
-        width: 100%;
     }
 
 
