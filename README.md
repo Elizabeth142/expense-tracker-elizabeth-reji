@@ -33,27 +33,38 @@ expense-tracker-elizabeth-reji/
 ├── style.css
 ├── script.js
 └── README.md
+```
 
-▶️ How to Run
-Clone the repository:
+## ▶️ How to Run
+
+1. Clone the repository:
+
+```bash
 git clone https://github.com/Elizabeth142/expense-tracker-elizabeth-reji.git
-Open the project folder.
+```
 
-Open index.html in a modern web browser.
+2. Open the project folder.
+
+3. Open `index.html` in a modern web browser.
 
 No installation, build tools, or additional dependencies are required.
 
-💾 Data Storage
+## 💾 Data Storage
+
 Transaction data is stored in the browser's Local Storage. This allows transactions to remain available after refreshing the page.
 
-📱 Responsive Design
+## 📱 Responsive Design
+
 The application is designed to work properly on both desktop and mobile screens.
 
-✨ Optional Bonus Features
-This project includes the following bonus features:
-Monthly expense summary
-Category-wise expense breakdown
-Input validation and helpful error messages
+## ✨ Optional Bonus Features
 
-👤 Author
-Elizabeth Reji
+This project includes the following bonus features:
+
+- Monthly expense summary
+- Category-wise expense breakdown
+- Input validation and helpful error messages
+
+## 👤 Author
+
+**Elizabeth Reji**
