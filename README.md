@@ -15,7 +15,7 @@ A simple and responsive web application for managing personal income and expense
 - Sort transactions by date in ascending or descending order
 - View monthly income, expense, and balance summary
 - Select month and year for monthly summaries
-- Category-wise expense breakdown
+- Category-wise expense chart
 - Form validation with helpful error messages
 - Prevent future dates from being entered
 - Data persistence using browser Local Storage
@@ -48,9 +48,8 @@ expense-tracker-elizabeth-reji/
 git clone https://github.com/Elizabeth142/expense-tracker-elizabeth-reji.git
 ```
 
-2.Open the project folder.
-
-3.Open index.html in a modern web browser.
+2. Open the project folder
+3. Open `index.html` in a modern web browser
 
 No installation, build tools, or additional dependencies are required.
 
@@ -79,9 +78,9 @@ Users can select a month and year to view:
 
 Future months are not available for the current year.
 
-## 📈 Expense Breakdown
+## 📈 Expense Chart
 
-The expense breakdown displays expenses grouped by category.
+The expense chart displays expenses grouped by category.
 
 Each category shows:
 
@@ -102,4 +101,4 @@ This project includes the following bonus features:
 
 ## 👤 Author
 
-# Elizabeth Reji
+Elizabeth Reji
